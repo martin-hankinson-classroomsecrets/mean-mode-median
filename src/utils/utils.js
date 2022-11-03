@@ -16,3 +16,26 @@ export const calculateMedian = (nums) => {
     ];
   }
 };
+
+export const calculateMode = (nums) => {
+  const numsObject = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    if (numsObject[+nums[i]]) {
+      numsObject[+nums[i]] += 1;
+    } else {
+      numsObject[+nums[i]] = 1;
+    }
+  }
+  let biggestValue = -1000000;
+  let biggestValueKey = -1000000;
+
+  Object.keys(numsObject).forEach((key) => {
+    let value = numsObject[key];
+    if (value > biggestValue) {
+      biggestValue = value;
+      biggestValueKey = key;
+    }
+  });
+  return biggestValueKey;
+};
