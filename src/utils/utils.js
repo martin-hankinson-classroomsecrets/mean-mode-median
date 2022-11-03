@@ -3,10 +3,16 @@ export const calculateMean = (nums) => {
   for (let i = 0; i < nums.length; i++) {
     total += +nums[i];
   }
-  return total / nums.length;
+  return (total / nums.length).toFixed(2);
+};
+
+const compareNumbers = (a, b) => {
+  return a - b;
 };
 
 export const calculateMedian = (nums) => {
+  nums.sort(compareNumbers);
+
   if (nums.length % 2 === 1) {
     return nums[Math.floor(nums.length / 2)];
   } else {
